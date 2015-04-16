@@ -18,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 27017, host: 27017
 
   #syncs entire project directory to ~/application on target machine
-  config.vm.synced_folder ".", "/home/vagrant/application"
+  #config.vm.synced_folder ".", "/home/vagrant/application"
 
   config.vm.provider "virtualbox" do |v|
     v.customize ["modifyvm", :id, "--memory", "1024"]

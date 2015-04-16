@@ -12,10 +12,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network :private_network, ip: "192.168.111.72"
+  config.vm.network :private_network, ip: "192.168.111.73"
 
-  # Forward the redis port from the host to this one
-  config.vm.network "forwarded_port", guest: 6379, host: 6379
+  # Forward the mongo port from the host to this one
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
 
   #syncs entire project directory to ~/application on target machine
   #config.vm.synced_folder ".", "/home/vagrant/application"
@@ -29,6 +29,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.limit = 'all'
     ansible.extra_vars = { user: "vagrant" }
     ansible.inventory_path = "../provisioning/hosts"
-    ansible.playbook = "../provisioning/redis.yml"
+    ansible.playbook = "../provisioning/node.yml"
   end
 end
