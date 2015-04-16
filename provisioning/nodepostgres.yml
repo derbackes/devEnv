@@ -1,0 +1,24 @@
+---
+- hosts: nodepostgress
+  user: vagrant
+  sudo: yes
+  vars:
+    postgresql_admin_user: "postgres"
+    postgresql_users:
+      - name: test_user
+        pass: test
+        encrypted: no       # denotes if the password is already encrypted.
+    postgresql_user_privileges:
+      - name: test_user
+        db: main
+        priv: "ALL"
+    postgresql_databases:
+      - name: main
+  roles:
+    - common
+    - nodesource.node
+    - nodejs
+    - browserify
+    - gulp
+    - strongloop
+    - ANXS.postgresql

@@ -1,0 +1,7 @@
+---
+- name: Install browserify
+  npm: name=browserify global=yes state=present
+  when: npmInstalled|success
+  register: browserifyInstalled
+  tags: browserify
+
