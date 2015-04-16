@@ -1,0 +1,9 @@
+---
+- hosts: mongo
+  user: vagrant
+  sudo: yes
+  vars:
+
+  roles:
+    - common
+    - mongodb

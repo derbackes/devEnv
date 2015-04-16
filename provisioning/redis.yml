@@ -1,0 +1,9 @@
+---
+- hosts: redis
+  user: vagrant
+  sudo: yes
+  vars:
+
+  roles:
+    - common
+    - DavidWittman.redis
